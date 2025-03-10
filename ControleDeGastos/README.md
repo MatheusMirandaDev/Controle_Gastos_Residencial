@@ -2,17 +2,23 @@
 
 Esta é a API do **Sistema de Gestão de Gastos Residenciais**, responsável por armazenar e processar os dados de usuários, transações e cálculos financeiros.
 
+---
+
 ## 📌 Tecnologias Utilizadas
 - **.NET 8.0**
 - **C#**
 - **Entity Framework Core (SQL Server)**
 - **Swagger** para documentação da API
 
+---
+
 ## 📖 Documentação da API
 A API conta com uma documentação interativa via **Swagger**.
 
 **Acesse em:**  
-🔗 [https://localhost:7130/swagger]
+🔗 https://localhost:7130/swagger
+
+---
 
 ## 🔗 Principais Endpoints
 
