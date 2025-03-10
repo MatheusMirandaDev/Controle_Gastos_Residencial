@@ -146,7 +146,7 @@ O backend estará disponível em: https://localhost:7130
    ```
 2. Navegue até a pasta do projeto frontend:
    ```bash
-    cd fronted
+    cd controle-gastos-frontend
    ```
 3. Instale as dependências:
    ```bash
