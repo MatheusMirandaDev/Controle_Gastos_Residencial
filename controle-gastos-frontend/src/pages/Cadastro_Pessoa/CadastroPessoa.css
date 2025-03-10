@@ -1,0 +1,163 @@
+/* Resetando margens e preenchimento de todos os elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garantir que o preenchimento e borda sejam incluídos nas dimensões totais */
+  font-family: "Poppins", sans-serif; /* Define a fonte padrão para todo o site */
+}
+
+/* Definindo estilos para o elemento html e body */
+html,
+body {
+  height: 100%; /* Garante que a altura do body ocupe toda a tela */
+  width: 100%; /* Garante que a largura do body ocupe toda a tela */
+  overflow-x: hidden; /* Impede o overflow horizontal */
+  display: flex; /* Usando Flexbox para centralizar o conteúdo */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+
+/* Estilos do body para manter o conteúdo alinhado e visível */
+body {
+  display: flex; /* Flexbox para organizar os elementos dentro do body */
+  flex-direction: column; /* Organiza os itens na vertical */
+  justify-content: flex-start; /* Alinha o conteúdo ao topo */
+  align-items: center; /* Alinha o conteúdo horizontalmente no centro */
+  min-height: 100vh; /* Garante que a altura mínima seja 100% da altura da tela */
+  padding-top: 60px; /* Adiciona espaço no topo */
+  overflow-y: auto; /* Permite rolar verticalmente caso o conteúdo exceda a altura */
+  -ms-overflow-style: none; /* Remover o estilo de barra de rolagem no Internet Explorer */
+  scrollbar-width: none; /* Remove a barra de rolagem no Firefox */
+}
+
+/* Estilos para a container principal, ajustando largura e centralização */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* O container ocupa toda a largura */
+  max-width: 400px; /* Limita a largura máxima */
+  padding-top: 20px; /* Adiciona espaçamento no topo */
+}
+
+/* Estilo para o formulário */
+form {
+  background: #ffffff; /* Fundo branco para o formulário */
+  padding: 40px; /* Adiciona espaçamento interno ao formulário */
+  border-radius: 10px; /* Borda arredondada */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra suave para o formulário */
+  width: 100%; /* O formulário ocupa toda a largura disponível */
+  display: flex; /* Usando flexbox para organizar os inputs e botões */
+  flex-direction: column; /* Organiza os elementos do formulário verticalmente */
+  gap: 20px; /* Espaçamento entre os elementos do formulário */
+}
+
+/* Estilos do título do formulário */
+h1 {
+  color: #333333; /* Cor escura para o título */
+  font-size: 24px; /* Tamanho da fonte do título */
+  text-align: center; /* Alinha o título ao centro */
+  margin-bottom: 10px; /* Espaçamento abaixo do título */
+}
+
+/* Estilos para os inputs do formulário */
+form input {
+  height: 45px; /* Define a altura dos inputs */
+  border-radius: 5px; /* Bordas arredondadas nos inputs */
+  border: 1px solid #cccccc; /* Borda leve nos inputs */
+  padding: 10px; /* Espaçamento interno nos inputs */
+  font-size: 16px; /* Tamanho da fonte */
+  background: #f9f9f9; /* Fundo claro para os inputs */
+  outline: none; /* Remove a borda azul padrão ao focar */
+}
+
+/* Estilos para inputs com erro */
+form input.erro {
+  border: 2px solid red; /* Borda vermelha para inputs com erro */
+  background-color: #ffe6e6; /* Fundo vermelho claro para inputs com erro */
+}
+
+/* Estilos ao focar nos inputs */
+form input:focus {
+  background-color: #ffffff; /* Fundo branco ao focar no input */
+  border-color: #003796; /* Borda azul escura ao focar */
+}
+
+/* Estilos para o botão do formulário */
+form button {
+  height: 45px; /* Define a altura do botão */
+  border-radius: 5px; /* Bordas arredondadas no botão */
+  background-color: #0071e9; /* Cor azul para o botão */
+  border: none; /* Remove a borda padrão do botão */
+  font-weight: bold; /* Negrito para o texto */
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer; /* Altera o cursor para pointer */
+  color: white; /* Cor do texto do botão */
+}
+
+/* Efeito de hover no botão */
+form button:hover {
+  background-color: #0056b3; /* Cor do botão ao passar o mouse */
+  transform: scale(1.05); /* Leve aumento do tamanho do botão */
+}
+
+/* Estilos para a container das cartas */
+.cards-container {
+  overflow-y: auto; /* Permite rolar verticalmente se necessário */
+  max-height: 400px; /* Limita a altura máxima da container */
+  width: 100%; /* O container ocupa toda a largura */
+  margin-top: 20px; /* Espaçamento acima das cartas */
+}
+
+/* Remove a barra de rolagem no contêiner */
+.cards-container::-webkit-scrollbar {
+  display: none; /* Esconde a barra de rolagem no Chrome/Safari */
+}
+
+.cards-container {
+  -ms-overflow-style: none; /* Remove a barra de rolagem no Internet Explorer */
+  scrollbar-width: none; /* Remove a barra de rolagem no Firefox */
+}
+
+/* Estilos para as cartas individuais */
+.card {
+  background: #ffffff; /* Fundo branco para cada carta */
+  padding: 15px; /* Espaçamento interno da carta */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra suave para as cartas */
+  width: 100%; /* As cartas ocupam toda a largura disponível */
+  margin-top: 10px; /* Espaçamento entre as cartas */
+  display: flex; /* Usando flexbox para o layout interno da carta */
+  justify-content: space-between; /* Espaço entre os elementos dentro da carta */
+  align-items: center; /* Alinha os itens no centro */
+}
+
+/* Estilos para o texto dentro das cartas */
+.card p {
+  color: #000000; /* Cor do texto das cartas */
+  font-weight: bold; /* Negrito para o texto das cartas */
+}
+
+/* Estilos para o texto secundário dentro das cartas */
+.card span {
+  font-weight: normal; /* Texto não negrito para informações secundárias */
+}
+
+/* Estilos para o botão dentro das cartas */
+.card button {
+  background: none; /* Remove fundo do botão */
+  border: none; /* Remove borda do botão */
+  cursor: pointer; /* Alteração do cursor ao passar sobre o botão */
+}
+
+/* Estilos para as imagens dentro dos botões das cartas */
+.card button img {
+  width: 20px; /* Define a largura da imagem */
+  transition: 0.2s; /* Adiciona transição suave ao efeito de hover */
+}
+
+/* Efeito de hover na imagem do botão */
+.card button:hover img {
+  opacity: 0.7; /* Diminui a opacidade ao passar o mouse */
+  transform: scale(1.1); /* Aumenta ligeiramente o tamanho da imagem */
+}

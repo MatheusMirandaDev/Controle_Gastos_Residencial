@@ -1,0 +1,55 @@
+/* .container: Contêiner principal da página */
+.container {
+  padding: 20px; /* Espaçamento interno */
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+}
+
+/* Estilo para os títulos h1 e h2 */
+h1,
+h2 {
+  text-align: center; /* Centraliza o texto */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Estilo para a tabela */
+table {
+  width: 100%; /* Tabela ocupa toda a largura */
+  border-collapse: collapse; /* Remove os espaços entre as bordas das células */
+  margin-bottom: 40px; /* Espaço abaixo da tabela */
+}
+
+/* Estilo das células da tabela (th e td) */
+table th,
+table td {
+  padding: 12px; /* Espaçamento interno nas células */
+  text-align: left; /* Alinha o conteúdo à esquerda */
+  border: 1px solid #ddd; /* Borda cinza clara nas células */
+}
+
+/* Estilo do cabeçalho da tabela */
+table th {
+  background-color: #1949e6; /* Cor azul para o cabeçalho */
+  color: white; /* Cor do texto no cabeçalho */
+}
+
+/* Estilo para as linhas alternadas da tabela */
+table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Cor de fundo cinza claro para linhas pares */
+}
+
+/* Estilo da seção de totais gerais */
+.totais-gerais {
+  text-align: center; /* Centraliza o texto */
+  font-size: 1.2em; /* Aumenta o tamanho da fonte */
+}
+
+/* Estilo dos parágrafos dentro de totais-gerais */
+.totais-gerais p {
+  margin: 10px 0; /* Espaço superior e inferior nos parágrafos */
+}
+
+/* Estilo valoes de despesa */
+.negative{
+  color: red; /* Cor vermelha para valores negativos */
+}

@@ -1,0 +1,33 @@
+/* Remove margens e preenchimentos padrão, define box-sizing e fonte padrão */
+* {
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove preenchimentos padrão */
+  box-sizing: border-box; /* Inclui bordas e preenchimentos nas dimensões */
+  font-family: "Segoe UI", Arial, sans-serif; /* Define a fonte padrão */
+}
+
+/* Define altura e largura totais, oculta overflow horizontal, e configura flexbox */
+html,
+body {
+  height: 100%; /* Define altura total */
+  width: 100vw; /* Define largura total da viewport */
+  overflow-x: hidden; /* Oculta overflow horizontal */
+  display: flex; /* Usa flexbox para layout */
+  flex-direction: column; /* Define direção do flexbox como coluna */
+  justify-content: flex-start; /* Alinha itens no início do contêiner */
+}
+
+/* Define fundo branco e permite overflow vertical */
+body {
+  background: #fff; /* Define a cor de fundo como branco */
+  overflow-y: auto; /* Permite overflow vertical */
+}
+
+/* Estilos específicos para o body */
+.container {
+  max-width: 900px; /* Define largura máxima */
+  width: 100%; /* Define largura total */
+  margin: auto; /* Centraliza o contêiner horizontalmente */
+  box-sizing: border-box; /* Inclui bordas e preenchimentos nas dimensões */
+  text-align: center; /* Centraliza o texto */
+}

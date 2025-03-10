@@ -1,0 +1,101 @@
+/*Container Principal*/
+.container {
+  display: flex; /* Usa Flexbox para organizar os elementos */
+  flex-direction: column; /* Organiza os elementos na vertical */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  width: 100%; /* Ocupa toda a largura disponível */
+  padding: 20px; /* Espaçamento interno */
+  box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura */
+  overflow-x: auto; /* Permite rolagem horizontal quando necessário */
+}
+
+/*Título Principal*/
+h1 {
+  font-size: 2rem; /* Tamanho da fonte */
+  margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+
+/*Estilo do Formulário*/
+form {
+  display: flex; /* Usa Flexbox para disposição dos campos */
+  flex-direction: column; /* Organiza os campos na vertical */
+  gap: 20px; /* Espaçamento entre os campos */
+  width: 100%; /* Preenche toda a largura disponível */
+  max-width: 800px; /* Largura máxima do formulário */
+  padding: 20px; /* Espaçamento interno do formulário */
+  border: 1px solid #ccc; /* Borda sutil */
+  border-radius: 8px; /* Bordas arredondadas */
+  background-color: #f9f9f9; /* Cor de fundo do formulário */
+}
+
+/*Estilo dos Rótulos do Formulário*/
+label {
+  font-size: 1.2rem; /* Tamanho da fonte */
+  margin-bottom: 5px; /* Espaço abaixo do rótulo */
+}
+
+/*Estilo para Campos de Entrada e Seleção*/
+input,
+select {
+  padding: 10px; /* Espaçamento interno */
+  font-size: 1rem; /* Tamanho da fonte */
+  border: 1px solid #ccc; /* Borda sutil */
+  border-radius: 4px; /* Bordas arredondadas */
+  width: 100%; /* Preenche toda a largura disponível */
+  box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura */
+}
+
+/*Estilo do Botão*/
+button {
+  padding: 10px 20px; /* Espaçamento interno */
+  font-size: 1.2rem; /* Tamanho da fonte */
+  color: white; /* Cor do texto */
+  border: none; /* Remove a borda padrão */
+  border-radius: 4px; /* Bordas arredondadas */
+  cursor: pointer; /* Indica que é clicável */
+  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+/*Estilo da Tabela*/
+table {
+  width: auto; /* Largura automática */
+  min-width: 900px; /* Largura mínima */
+  margin-top: 40px; /* Espaço acima da tabela */
+  border-collapse: collapse; /* Remove o espaço entre as bordas das células */
+  border-radius: 8px; /* Bordas arredondadas */
+  background-color: #fff; /* Cor de fundo da tabela */
+}
+
+/*Estilo das Células da Tabela*/
+table td {
+  padding: 15px; /* Espaçamento dentro das células */
+  text-align: left; /* Alinha o texto à esquerda */
+  border: 1px solid #ddd; /* Borda entre as células */
+}
+
+/*Estilo do Cabeçalho da Tabela*/
+table th {
+  background-color: #1949e6; /* Cor de fundo azul para o cabeçalho */
+  color: white; /* Cor do texto */
+}
+
+/*Linhas Alternadas da Tabela*/
+table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Cor de fundo para linhas pares */
+}
+
+/*Estilo para Campos com Erro*/
+.input-erro {
+  border: 2px solid red; /* Borda vermelha para campos com erro */
+}
+
+/*Estilo para Transações de Despesa*/
+.despesa {
+  color: red; /* Cor vermelha para transações de despesa */
+}
+
+/*Estilo para Transações de Receita*/
+.receita {
+  color: green; /* Cor verde para transações de receita */
+}

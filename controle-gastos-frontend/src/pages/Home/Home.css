@@ -1,0 +1,91 @@
+/*Reseta margens, paddings e define a caixa de modelo de todos os elementos*/
+* {
+  margin: 0; /* Remove as margens padrão */
+  padding: 0; /* Remove o padding padrão */
+  box-sizing: border-box; /* Garante que paddings e margens não afetem o tamanho total do elemento */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte da aplicação */
+}
+
+/*Define o comportamento geral de html e body*/
+html,
+body {
+  height: 100%; /* Garante que o corpo ocupe 100% da altura da tela */
+  background: #fff; /* Define o fundo branco */
+  display: flex; /* Usa o layout flexbox para o body */
+  justify-content: center; /* Centraliza os elementos filhos horizontalmente */
+  overflow-x: hidden; /* Remove a rolagem horizontal */
+}
+
+/*Estiliza o corpo com um espaçamento superior*/
+body {
+  padding-top: 80px; /* Adiciona um espaço extra no topo da página */
+}
+
+/*Define a largura máxima e centraliza o conteúdo da classe .container*/
+.container {
+  max-width: 900px; /* Define a largura máxima do contêiner */
+  width: 100%; /* O contêiner ocupa 100% da largura disponível */
+  margin: auto; /* Centraliza o contêiner horizontalmente */
+  padding: 20px; /* Adiciona espaçamento interno */
+  text-align: center; /* Centraliza o texto */
+}
+
+/*Estiliza o título principal (h1)*/
+h1 {
+  font-size: 2.2rem; /* Define o tamanho da fonte */
+  font-weight: bold; /* Define a fonte como negrito */
+  color: #808080; /* Define a cor do texto como cinza */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/*Justifica o texto dentro de parágrafos (p)*/
+p {
+  text-align: justify; /* Justifica o texto no parágrafo */
+}
+
+/*Estiliza o subtítulo (h2)*/
+h2 {
+  font-size: 1.5rem; /* Tamanho da fonte do subtítulo */
+  font-weight: bold; /* Define o subtítulo em negrito */
+  color: #808080; /* Cor cinza */
+  margin-top: 40px; /* Espaço acima do subtítulo */
+  margin-bottom: 10px; /* Espaço abaixo do subtítulo */
+}
+
+/*Estilo para caixas de funcionalidades (.feature-box)*/
+.feature-box {
+  background-color: #f5f5f5; /* Cor de fundo cinza claro */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno */
+  margin-bottom: 20px; /* Espaço abaixo das caixas */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil ao redor das caixas */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+/*Estilo para o título dentro das caixas de funcionalidades*/
+.feature-box h3 {
+  font-size: 1.4rem; /* Tamanho da fonte do título */
+  font-weight: bold; /* Negrito */
+  color: #2794b9; /* Cor azul para destacar */
+  margin-bottom: 10px; /* Espaço abaixo do título */
+}
+
+/*Estilo para os parágrafos dentro das caixas de funcionalidades*/
+.feature-box p {
+  font-size: 1rem; /* Tamanho da fonte */
+  color: #333; /* Cor do texto */
+  line-height: 1.6; /* Altura da linha para melhorar a legibilidade */
+}
+
+/*Estiliza a marcação <h6> usada em descrições adicionais*/
+h6 {
+  font-size: 0.9rem; /* Tamanho da fonte reduzido */
+  color: #000000; /* Cor preta */
+  font-style: italic; /* Itálico para destacar */
+  margin-top: 5px; /* Espaço superior */
+}
+
+/*Remove a barra de rolagem do navegador*/
+::-webkit-scrollbar {
+  display: none; /* Esconde a barra de rolagem */
+}

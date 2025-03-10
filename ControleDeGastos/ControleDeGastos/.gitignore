@@ -1,0 +1,11 @@
+﻿Migrations/
+/bin/
+/obj/
+appsettings.Development.json
+appsettings.Production.json
+.vs/
+.vscode/
+.idea/
+*.user
+*.userosscache
+*.suo
