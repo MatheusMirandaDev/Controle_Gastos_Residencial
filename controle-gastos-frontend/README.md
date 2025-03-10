@@ -1,154 +1,48 @@
-# Sistema de Gestão de Gastos Residenciais
+# Frontend - React (Vite)
 
-O **Sistema de Gestão de Gastos Residenciais** foi desenvolvido para ajudar no controle das finanças domésticas de maneira simples e eficiente. Ele permite o gerenciamento de despesas e receitas de cada pessoa da casa, auxiliando no controle do saldo geral.
+Este é o frontend do **Sistema de Gestão de Gastos Residenciais**, desenvolvido em **React** com **Vite**.
 
-## Tecnologias Utilizadas
-
-### Frontend
-
+## 📌 Tecnologias Utilizadas
 - **React**
 - **JavaScript**
-- **CSS**
 - **Vite**
-
-### Backend
-
-- **.NET 8.0**
-- **C#**
-- **Entity Framework Core (SQL Server)**
-- **Swagger** para documentação da API
+- **CSS**
+- **Axios** (para chamadas à API)
+- **React Router** (para navegação)
 
 ---
 
-## Funcionalidades
+## 🔗 Funcionalidades Principais
 
-### Cadastro de Pessoas
+### 📌 Cadastro de Pessoas
+- Criar, visualizar e excluir usuários.
 
-- Criação, visualização e remoção de pessoas cadastradas no sistema.
-- **Importante**: Ao excluir uma pessoa, todas as suas transações são removidas automaticamente.
-- **Importante**: Pessoas menores de 18 anos só podem registrar **despesas**, não sendo permitido o cadastro de **receitas**.
+### 📌 Registro de Transações
+- Adicionar receitas e despesas associadas a cada pessoa.
 
-### Cadastro de Transações
-
-- Registra receitas e despesas, associando cada transação a uma pessoa.
-- **Importante**: Para pessoas menores de 18 anos, apenas transações do tipo **despesa** podem ser registradas.
-
-### Consulta de Totais
-
-- Visualiza o total de receitas, despesas e o saldo individual de cada pessoa.
-- Visualiza o saldo geral da residência.
+### 📌 Consulta de Totais
+- Exibir totais individuais e o saldo geral da residência.
 
 ---
 
-## Como Usar o Sistema
+## 📺 Interface do Usuário
 
-### 1. Cadastro de Pessoas
+A interface foi projetada para ser intuitiva e responsiva.  
+Aqui estão algumas telas do sistema:
 
-- Adicione uma pessoa ao sistema.
-- No topo da tela, clique em **Cadastro de Pessoas** para adicionar novas pessoas ao sistema.
-- Além de adicionar, você poderá visualizar ou excluir.
+🔹 **Cadastro de Pessoas**  
 
-### 2. Cadastro de Transações
+🔹 **Registro de Transações**  
 
-- Cadastre as transações (despesas ou receitas) para cada pessoa.
-- No topo da tela, clique em **Cadastro de Transações**.
-- Na aba de transações, você poderá visualizar todas as transações registradas e seus respectivos responsáveis.
-
-### 3. Consulta de Totais
-
-- Consulte os totais de receitas, despesas e saldo de cada pessoa, além do total geral da residência.
-- Para acessar, clique em **Consulta de Totais** no topo da tela.
+🔹 **Consulta de Totais**  
 
 ---
 
-## Documentação da API (Backend)
+## 🔌 Comunicação com a API
 
-A documentação da API foi gerada utilizando o **Swagger**. Para explorar os endpoints da API, rode o a API e acesse:
+O frontend se comunica com a API usando **Axios**. Exemplo de chamada:
 
-```bash
-https://localhost:7130/swagger
-```
-
-### Endpoints
-
-#### ConsultaTotais
-
-- **GET /ConsultaTotais**
-  - Obtém os totais de cada pessoa (Receitas, Despesas e Saldo).
-- **GET /ConsultaTotais/gerais**
-  - Obtém os totais gerais (Receitas, Despesas, Saldo).
-
-#### Pessoa
-
-- **POST /Pessoa**
-
-  - Cria uma nova pessoa.
-
-- **GET /Pessoa**
-
-  - Obtém uma lista de todas as pessoas cadastradas.
-
-- **DELETE /Pessoa/{id}**
-  - Remove uma pessoa do banco de dados com base no ID fornecido.
-
-#### Transacao
-
-- **POST /Transacao**
-
-  - Cria uma nova transação.
-
-- **GET /Transacao**
-  - Obtém todas as transações cadastradas.
-
----
-
-## Como Rodar o Projeto
-
-### Backend (API)
-
-1. Clone o repositório do backend:
-   ```bash
-   git clone <url-do-repositorio-backend>
-   ```
-2. Navegue até a pasta do projeto backend:
-   ```bash
-    cd backend
-   ```
-3. Instale as dependências:
-
-   ```bash
-   dotnet restore
-   ```
-
-4. Crie e aplique as migrações do banco de dados:
-   ```bash
-   dotnet ef migrations add InitialCreate
-   dotnet ef database update
-   ```
-5. Inicie o servidor backend:
-   `bash
-dotnet run
-`
-
-O backend estará disponível em: https://localhost:7130
-
-### Frontend
-
-1. Clone o repositório do frontend:
-   ```bash
-   git clone <url-do-repositorio-backend>
-   ```
-2. Navegue até a pasta do projeto frontend:
-   ```bash
-    cd fronted
-   ```
-3. Instale as dependências:
-   ```bash
-   npm install
-   ```
-4. Inicie o servidor frontend:
-   ```bash
-   npm run dev
-   ```
-
-O frontend estará disponível em: http://localhost:5173/
+## 🎯 Melhorias Futuras para o Frontend
+Criar um sistema de autenticação com login/logout.
+Melhorar a experiência do usuário com notificações visuais.
+Implementar gráficos para análise de gastos.

@@ -106,29 +106,35 @@ https://localhost:7130/swagger
 
 ### Backend (API)
 
-1. Clone o repositório do backend:
+1. Verifique se o .NET 8.0 está instalado:
+   ```bash
+   dotnet --list-sdks
+   ```
+   Se o .NET 8.0 não estiver na lista, baixe e instale em:
+   https://dotnet.microsoft.com/en-us/download/dotnet/8.0
+2. Clone o repositório do backend:
    ```bash
    git clone <url-do-repositorio-backend>
    ```
-2. Navegue até a pasta do projeto backend:
+3. Navegue até a pasta do projeto backend:
    ```bash
-    cd backend
+    cd ControleDeGastos
    ```
-3. Instale as dependências:
+4. Instale as dependências:
 
    ```bash
    dotnet restore
    ```
-
-4. Crie e aplique as migrações do banco de dados:
+5. Crie e aplique as migrações do banco de dados:
    ```bash
    dotnet ef migrations add InitialCreate
    dotnet ef database update
    ```
-5. Inicie o servidor backend:
-   `bash
-dotnet run
-`
+6. Inicie o servidor backend:
+   ```bash
+   dotnet build ControleDeGastos.sln
+   dotnet run --project ControleDeGastos/ControleDeGastos.API.csproj
+   ```
 
 O backend estará disponível em: https://localhost:7130
 
@@ -136,7 +142,7 @@ O backend estará disponível em: https://localhost:7130
 
 1. Clone o repositório do frontend:
    ```bash
-   git clone <url-do-repositorio-backend>
+   git clone <url-do-repositorio-frontend>
    ```
 2. Navegue até a pasta do projeto frontend:
    ```bash
