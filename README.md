@@ -1,17 +1,17 @@
-# Sistema de Gestão de Gastos Residenciais
+# 🏠💰 Sistema de Gestão de Gastos Residenciais 
 
 O **Sistema de Gestão de Gastos Residenciais** foi desenvolvido para ajudar no controle das finanças domésticas de maneira simples e eficiente. Ele permite o gerenciamento de despesas e receitas de cada pessoa da casa, auxiliando no controle do saldo geral.
 
-## Tecnologias Utilizadas
+## 📌 Tecnologias Utilizadas
 
-### Frontend
+### 🌐 Frontend
 
 - **React**
 - **JavaScript**
 - **CSS**
 - **Vite**
 
-### Backend
+### 🖥 Backend
 
 - **.NET 8.0**
 - **C#**
@@ -20,27 +20,27 @@ O **Sistema de Gestão de Gastos Residenciais** foi desenvolvido para ajudar no 
 
 ---
 
-## Funcionalidades
+## 🔗 Funcionalidades
 
-### Cadastro de Pessoas
+### 🔹 Cadastro de Pessoas
 
 - Criação, visualização e remoção de pessoas cadastradas no sistema.
 - **Importante**: Ao excluir uma pessoa, todas as suas transações são removidas automaticamente.
 - **Importante**: Pessoas menores de 18 anos só podem registrar **despesas**, não sendo permitido o cadastro de **receitas**.
 
-### Cadastro de Transações
+### 🔹 Cadastro de Transações
 
 - Registra receitas e despesas, associando cada transação a uma pessoa.
 - **Importante**: Para pessoas menores de 18 anos, apenas transações do tipo **despesa** podem ser registradas.
 
-### Consulta de Totais
+### 🔹 Consulta de Totais
 
 - Visualiza o total de receitas, despesas e o saldo individual de cada pessoa.
 - Visualiza o saldo geral da residência.
 
 ---
 
-## Como Usar o Sistema
+## 🛠️ Como Usar o Sistema
 
 ### 1. Cadastro de Pessoas
 
@@ -61,7 +61,7 @@ O **Sistema de Gestão de Gastos Residenciais** foi desenvolvido para ajudar no 
 
 ---
 
-## Documentação da API (Backend)
+## 📖 Documentação da API (Backend)
 
 A documentação da API foi gerada utilizando o **Swagger**. Para explorar os endpoints da API, rode o a API e acesse:
 
@@ -69,16 +69,16 @@ A documentação da API foi gerada utilizando o **Swagger**. Para explorar os en
 https://localhost:7130/swagger
 ```
 
-### Endpoints
+### 🔗 Endpoints
 
-#### ConsultaTotais
+#### 🔹 ConsultaTotais
 
 - **GET /ConsultaTotais**
   - Obtém os totais de cada pessoa (Receitas, Despesas e Saldo).
 - **GET /ConsultaTotais/gerais**
   - Obtém os totais gerais (Receitas, Despesas, Saldo).
 
-#### Pessoa
+#### 🔹 Pessoa
 
 - **POST /Pessoa**
 
@@ -91,7 +91,7 @@ https://localhost:7130/swagger
 - **DELETE /Pessoa/{id}**
   - Remove uma pessoa do banco de dados com base no ID fornecido.
 
-#### Transacao
+#### 🔹 Transacao
 
 - **POST /Transacao**
 
@@ -102,9 +102,9 @@ https://localhost:7130/swagger
 
 ---
 
-## Como Rodar o Projeto
+## 🛠  Como Rodar o Projeto
 
-### Backend (API)
+### 🖥 Backend (API)
 
 1. Verifique se o .NET 8.0 está instalado:
    ```bash
@@ -138,7 +138,7 @@ https://localhost:7130/swagger
 
 O backend estará disponível em: https://localhost:7130
 
-### Frontend
+### 🌐 Frontend
 
 1. Clone o repositório do frontend:
    ```bash
