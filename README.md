@@ -1,4 +1,4 @@
-# 🏠💰 Sistema de Gestão de Gastos Residenciais 
+# 🏠 Sistema de Gestão de Gastos Residenciais 💰
 
 O **Sistema de Gestão de Gastos Residenciais** foi desenvolvido para ajudar no controle das finanças domésticas de maneira simples e eficiente. Ele permite o gerenciamento de despesas e receitas de cada pessoa da casa, auxiliando no controle do saldo geral.
 
