@@ -132,8 +132,7 @@ https://localhost:7130/swagger
    ```
 6. Inicie o servidor backend:
    ```bash
-   dotnet build ControleDeGastos.sln
-   dotnet run --project ControleDeGastos/ControleDeGastos.API.csproj
+   dotnet run 
    ```
 
 O backend estará disponível em: https://localhost:7130
