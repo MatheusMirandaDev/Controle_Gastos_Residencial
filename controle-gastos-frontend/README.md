@@ -41,8 +41,3 @@ Aqui estão algumas telas do sistema:
 ## 🔌 Comunicação com a API
 
 O frontend se comunica com a API usando **Axios**. Exemplo de chamada:
-
-## 🎯 Melhorias Futuras para o Frontend
-Criar um sistema de autenticação com login/logout.
-Melhorar a experiência do usuário com notificações visuais.
-Implementar gráficos para análise de gastos.
