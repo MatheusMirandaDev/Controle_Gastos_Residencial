@@ -108,7 +108,6 @@ function CadastroTransacao() {
 
   return (
     <div className="container">
-      <h1>Cadastro de Transação</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault(); // Impede o comportamento padrão de recarregar a página ao submeter o formulário
@@ -116,6 +115,7 @@ function CadastroTransacao() {
         }}
       >
         <div>
+        <h1>Cadastro de Transação</h1>
           <label>Pessoa referente à transferência</label>
           <select
             value={pessoaId}

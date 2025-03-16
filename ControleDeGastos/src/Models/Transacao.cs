@@ -4,7 +4,9 @@ using System.Text.Json.Serialization;
 
 namespace ControleDeGastos.src.Models;
 
-// Enumerador que define os tipos de transação
+/// <summary>
+/// Representa o tipo de transação feita no sistema. (0 - Receita / 1 - Despesa)
+/// </summary>
 public enum TipoTransacao
 {
     Receita,
@@ -15,7 +17,7 @@ public enum TipoTransacao
 public class Transacao
 {
     [Key]
-    public int Id { get; set; } // Identificador da transação
+    public int Id { get; set; } // Identificador único da transação
 
     [Required(ErrorMessage = "A categoria é obrigatória.")]
     [StringLength(200, ErrorMessage = "A descrição deve ter no máximo 200 caracteres")]
@@ -32,7 +34,7 @@ public class Transacao
     [Required]
     public int PessoaId { get; set; } // Chave estrangeira de Pessoa
 
-    [JsonIgnore]
+    [JsonIgnore] // Ignora a propriedade Pessoa na serialização do JSON
     [Required]
     public Pessoa Pessoa { get; set; } // Propriedade de navegação para os dados de Pessoa
 }

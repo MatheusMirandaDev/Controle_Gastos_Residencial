@@ -1,12 +1,37 @@
 ﻿using ControleDeGastos.API.src.Data.DTOs.PessoaDTO;
 using ControleDeGastos.src.Models;
 
-namespace ControleDeGastos.API.src.Data.DTOs.TransacaoDTO;
-
-public class ReadTransacaoDTO
+namespace ControleDeGastos.API.src.Data.DTOs.TransacaoDTO
 {
-    public string Descricao { get; set; } // Descrição da transação
-    public decimal Valor { get; set; } // Valor da transação
-    public TipoTransacao Tipo { get; set; } // Receita ou Despesa
-    public ReadPessoaDTO Pessoa { get; set; } // Pessoa da transação
+    /// <summary>
+    /// DTO responsável pela leitura dos dados de uma transação.
+    /// Contém as informações de uma transação para ser exibida na API.
+    /// </summary>
+    public class ReadTransacaoDTO
+    {
+        /// <summary>
+        /// Descrição da transação.
+        /// </summary>
+        public string Descricao { get; set; }
+
+        /// <summary>
+        /// Valor da transação.
+        /// </summary>
+        public decimal Valor { get; set; }
+
+        /// <summary>
+        /// Tipo da transação.
+        /// </summary>
+        public TipoTransacao Tipo { get; set; }
+
+        /// <summary>
+        /// Pessoa associada à transação.
+        /// </summary>
+        public ReadPessoaDTO Pessoa { get; set; }
+
+        /// <summary>
+        /// ID da Pessoa associada à transação.
+        /// </summary>
+        public int PessoaId { get; set; }
+    }
 }

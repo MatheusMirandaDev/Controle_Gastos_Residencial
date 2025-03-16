@@ -39,3 +39,11 @@ ul li a {
 ul li a:hover {
   color: #00025f; /* Altera a cor para um tom de azul escuro quando o mouse passa sobre o link */
 }
+
+/* Estilos para o link ativo (quando o link estiver na página correspondente) */
+ul li a.active {
+  color: #00025f; /* Muda a cor para amarelo para o link ativo */
+  border-bottom: 3px solid #00025f; /* Adiciona sublinhado com a mesma cor do link ativo */
+  font-weight: bold; /* Destaca o link com negrito */
+  transform: scale(0.95); /* Efeito de "apertar" */
+}

@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       { path: "", element: <Home /> }, // Rota padrão: carrega a página Home
       { path: "CadastroDePessoas", element: <CadastroPessoa /> }, // Rota para cadastro de pessoas
-      { path: "CadastroDeTrasacoes", element: <CadastroTransacao /> }, // Rota para cadastro de transações
+      { path: "CadastroDeTransacoes", element: <CadastroTransacao /> }, // Rota para cadastro de transações
       { path: "ConsultaDeTotais", element: <ConsultaTotais /> }, // Rota para consultar totais
     ],
   },

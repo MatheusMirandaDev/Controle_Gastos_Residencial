@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
         });
 });
 
-// Configuração do Banco de Dados
+// ConfiguraÃ§Ã£o do Banco de Dados
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ControleDeGastosContext>(options =>
     options.UseSqlServer(connectionString));

@@ -1,29 +1,27 @@
+import { Link, useLocation } from "react-router-dom"; // Importa useLocation para saber a rota atual
 import "./NavBar.css"; // Importa o arquivo de estilos para o componente NavBar
-import { Link } from "react-router-dom"; // Importa o componente Link do react-router-dom para navegação
 
 const NavBar = () => {
+  const location = useLocation(); // Obtém a localização atual da página
+
+  // Função para verificar se o link é o da rota atual
+  const isActive = (path) => location.pathname === path ? "active" : "";
+
   return (
     <div className="navbar">
-      {" "}
-      {/* Contêiner principal do componente NavBar */}
       <nav>
-        {/* Lista de navegação com links para as diferentes páginas */}
         <ul>
           <li>
-            {/* Link para a página inicial */}
-            <Link to="/">Home</Link>
+            <Link to="/" className={isActive("/")}>Home</Link>
           </li>
           <li>
-            {/* Link para a página de cadastro de pessoas */}
-            <Link to="/CadastroDePessoas">Cadastro de Pessoas</Link>
+            <Link to="/CadastroDePessoas" className={isActive("/CadastroDePessoas")}>Cadastro de Pessoas</Link>
           </li>
           <li>
-            {/* Link para a página de cadastro de transações */}
-            <Link to="/CadastroDeTrasacoes">Cadastro de Transações</Link>
+            <Link to="/CadastroDeTransacoes" className={isActive("/CadastroDeTransacoes")}>Cadastro de Transações</Link>
           </li>
           <li>
-            {/* Link para a página de consulta de totais */}
-            <Link to="/ConsultaDeTotais">Consulta de Totais</Link>
+            <Link to="/ConsultaDeTotais" className={isActive("/ConsultaDeTotais")}>Consulta de Totais</Link>
           </li>
         </ul>
       </nav>
