@@ -10,6 +10,11 @@ namespace ControleDeGastos.API.src.Data.DTOs.TransacaoDTO
     public class ReadTransacaoDTO
     {
         /// <summary>
+        /// Identificador da transação.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
         /// Descrição da transação.
         /// </summary>
         public string Descricao { get; set; }

@@ -2,6 +2,7 @@ using ControleDeGastos.API.src.Data.Repositories;
 using ControleDeGastos.src.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,23 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Controle de Gastos Residenciais API",
+        Description = "Esta API permite o controle e gerenciamento de transações financeiras residenciais, como despesas e receitas. A API oferece funcionalidades para cadastrar, listar, atualizar e excluir transações, além de fornecer informações detalhadas sobre as pessoas associadas a cada transação.",
+        Contact = new OpenApiContact
+        {
+            Name = "Matheus Miranda Batista",
+            Email = "matheusmiranda.batista@gmail.com"
+        },
+        License = new OpenApiLicense
+        {
+            Name = "MIT",
+            Url = new Uri("https://opensource.org/licenses/MIT")
+        }
+    });
+
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });

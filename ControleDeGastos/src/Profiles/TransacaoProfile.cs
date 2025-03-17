@@ -17,6 +17,9 @@ public class TransacaoProfile : Profile
         // Mapeia Transacao para ReadTransacaoDTO (usado na leitura dos dados de uma transação)
         CreateMap<Transacao, ReadTransacaoDTO>();
 
+        // Mapeia UpdateTransacaoDTO para Transacao (usado na atualização de uma transacao)
+        CreateMap<UpdateTransacaoDTO, Transacao>();
+
         // Mapeia Pessoa para ReadPessoaDTO (para incluir os dados da pessoa na transação)
         CreateMap<Pessoa, ReadPessoaDTO>();
     }

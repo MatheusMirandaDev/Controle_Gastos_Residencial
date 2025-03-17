@@ -31,6 +31,8 @@ public class TransacaoController : ControllerBase
     /// <response code="200">Retorna a transação criada com sucesso.</response>
     /// <response code="400">Se a pessoa não for encontrada ou se a transação não for permitida (para menores de idade que tentam registrar receita).</response>
     [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateTransacao([FromBody] CreateTransacaoDTO transacaoDto)
     {
         // Verifica se a pessoa existe
@@ -75,6 +77,7 @@ public class TransacaoController : ControllerBase
     /// <returns>Uma lista de transações.</returns>
     /// <response code="200">Retorna a lista de transações com sucesso.</response>
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IEnumerable<ReadTransacaoDTO>> GetTransacao()
     {
         // Obtém todas as transações do banco de dados, incluindo os dados da pessoa
@@ -86,4 +89,62 @@ public class TransacaoController : ControllerBase
         // Mapeia as transações para o DTO de leitura
         return _mapper.Map<List<ReadTransacaoDTO>>(transacoes);
     }
+
+    /// <summary>
+    /// Atualiza uma transação com base no ID fornecido.
+    /// </summary>
+    /// <param name="id">O id da transação a ser atualizado</param>
+    /// <param name="transacaoDto">Os dados para atualizar a transação</param>
+    /// <response code="204">Transação atualizada com sucesso.</response>
+    /// <response code="400">Dados inválidos no corpo da requisição.</response>
+    /// <response code="404">Transação não encontrada.</response>
+    [HttpPut("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> UpdateTransacao(int id, [FromBody] UpdateTransacaoDTO transacaoDto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState); // Retorna 400 se os dados inseridos forem inválidos
+        }
+
+        var transacao = await _context.Transacoes.FindAsync(id); // Obtém a transação do banco de dados
+        if (transacao == null)
+        {
+            return NotFound(); // Retorna 404 se não encontrar a transação
+        }
+
+        // Mapeia o DTO para o modelo de transação
+        _mapper.Map(transacaoDto, transacao); // Atualiza a transação com os novos dados
+        _context.Transacoes.Update(transacao); // Atualiza a transação no contexto
+        await _context.SaveChangesAsync(); // Salva as mudanças no banco de dados
+        return NoContent(); // Retorna o código HTTP 204 (sem conteúdo)
+    }
+
+    /// <summary>
+    /// Deleta uma transação com base no ID fornecido.
+    /// </summary>
+    /// <param name="id"> O id da transação a ser excluida</param>
+    /// <returns>Resultado da operação de exclusão.</returns>
+    /// <response code="204">Transação deletada com sucesso.</response>
+    /// <response code="404">Transação não encontrada.</response>
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteTransacao(int id) 
+    {
+        var transacao = await _context.Transacoes.FindAsync(id); // Obtém a transação do banco de dados
+        // verifica se a transação existe
+        if (transacao == null)
+        {
+            return NotFound();
+        }
+
+        _context.Transacoes.Remove(transacao); // Remove a transação do contexto
+        await _context.SaveChangesAsync(); // Salva as mudanças no banco de dados
+        return NoContent();
+
+    }
+
 }

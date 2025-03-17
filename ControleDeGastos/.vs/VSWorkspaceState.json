@@ -7,8 +7,8 @@
     "\\src\\Controllers",
     "\\src\\Data",
     "\\src\\Data\\DTOs",
-    "\\src\\Data\\DTOs\\PessoaDTO",
-    "\\src\\Profiles"
+    "\\src\\Data\\DTOs\\TransacaoDTO"
   ],
+  "SelectedNode": "\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

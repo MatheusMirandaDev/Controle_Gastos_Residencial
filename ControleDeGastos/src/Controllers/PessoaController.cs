@@ -88,7 +88,7 @@ public class PessoaController : ControllerBase
         _mapper.Map(pessoaDto, pessoa); // Mapeia o DTO para a entidade Pessoa
         _context.Pessoas.Update(pessoa); // Atualiza a pessoa no contexto
         await _context.SaveChangesAsync(); // Salva as mudanças no banco de dados
-        return NoContent(); // Retorna o código HTTP 204
+        return NoContent(); // Retorna o código HTTP 204 (sem conteúdo)
     }
 
     /// <summary>
@@ -99,16 +99,19 @@ public class PessoaController : ControllerBase
     /// <response code="204">Pessoa deletada com sucesso.</response>
     /// <response code="404">Pessoa não encontrada.</response>
     [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeletePessoa(int id)
     {
-        var pessoa = await _context.Pessoas.FindAsync(id);
+        var pessoa = await _context.Pessoas.FindAsync(id); // Obtém a pessoa do banco de dados
+        // Se a pessoa não for encontrada, retorna 404
         if (pessoa == null)
         {
             return NotFound();
         }
 
-        _context.Pessoas.Remove(pessoa);
-        await _context.SaveChangesAsync();
+        _context.Pessoas.Remove(pessoa); // Remove a pessoa do contexto
+        await _context.SaveChangesAsync(); // Salva as mudanças no banco de dados
 
         return NoContent();
     }
