@@ -47,8 +47,11 @@ form {
   border-radius: 10px; /* Borda arredondada */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra suave para o formulário */
   width: 100%; /* O formulário ocupa toda a largura disponível */
+  max-width: 400px; /* Limita a largura máxima do formulário */
   display: flex; /* Usando flexbox para organizar os inputs e botões */
+  display: flex; /* Usando flexbox para organizar os elementos do formulário */
   flex-direction: column; /* Organiza os elementos do formulário verticalmente */
+  justify-content: space-between;
   gap: 20px; /* Espaçamento entre os elementos do formulário */
 }
 
@@ -126,6 +129,7 @@ form button:hover {
   border-radius: 10px; /* Bordas arredondadas */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra suave para as cartas */
   width: 100%; /* As cartas ocupam toda a largura disponível */
+  min-width: 400px; /* Largura mínima das cartas */
   margin-top: 10px; /* Espaçamento entre as cartas */
   display: flex; /* Usando flexbox para o layout interno da carta */
   justify-content: space-between; /* Espaço entre os elementos dentro da carta */
@@ -136,6 +140,11 @@ form button:hover {
 .card p {
   color: #000000; /* Cor do texto das cartas */
   font-weight: bold; /* Negrito para o texto das cartas */
+  flex-grow: 1; /* Faz com que o nome ocupe o máximo de espaço possível */
+  margin-right: 10px; /* Adiciona um pequeno espaço entre o nome e os botões */
+  white-space: nowrap; /* Impede que o nome quebre a linha */
+  overflow: hidden; /* Esconde o excesso de texto */
+  text-overflow: ellipsis; /* Adiciona "..." caso o nome seja muito grande */
 }
 
 /* Estilos para o texto secundário dentro das cartas */
@@ -148,6 +157,9 @@ form button:hover {
   background: none; /* Remove fundo do botão */
   border: none; /* Remove borda do botão */
   cursor: pointer; /* Alteração do cursor ao passar sobre o botão */
+  display: flex;
+  align-items: right;
+  
 }
 
 /* Estilos para as imagens dentro dos botões das cartas */

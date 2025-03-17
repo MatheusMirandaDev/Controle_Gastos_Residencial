@@ -1,6 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\bin",
+    "\\Properties",
+    "\\src",
+    "\\src\\Controllers",
+    "\\src\\Data",
+    "\\src\\Data\\DTOs",
+    "\\src\\Data\\DTOs\\PessoaDTO",
+    "\\src\\Profiles"
   ],
   "PreviewInSolutionExplorer": false
 }

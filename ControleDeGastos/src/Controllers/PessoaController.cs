@@ -50,11 +50,45 @@ public class PessoaController : ControllerBase
     /// Obtém uma lista de todas as pessoas cadastradas.
     /// </summary>
     /// <returns>Uma lista de pessoas.</returns>
+    /// <response code="200">Pessoa encontrada.</response>
     [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IEnumerable<ReadPessoaDTO>> GetPessoa()
     {
         var pessoas = await _context.Pessoas.ToListAsync(); // Obtém todas as pessoas do banco de dados
         return _mapper.Map<List<ReadPessoaDTO>>(pessoas); // Mapeia as pessoas para DTOs de leitura
+    }
+
+    /// <summary>
+    /// Atualiza uma pessoa com base no ID fornecido.
+    /// </summary>
+    /// <param name="id">O ID da pessoa a ser atualizada.</param>
+    /// <param name="pessoaDto">Os dados para atualizar a pessoa.</param>
+    /// <returns></returns>
+    /// <response code="204">Pessoa atualizada com sucesso.</response>
+    /// <response code="400">Dados inválidos no corpo da requisição.</response>
+    /// <response code="404">Pessoa não encontrada.</response>
+    [HttpPut("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> UpdatePessoa(int id, [FromBody] UpdatePessoaDTO pessoaDto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState); // Retorna 400 se os dados inseridos forem inválidos
+        }
+
+        var pessoa = await _context.Pessoas.FindAsync(id); // Obtém a pessoa do banco de dados
+        if (pessoa == null)
+        {
+            return NotFound(); // Retorna 404 se não encontrar a pessoa
+        }
+
+        _mapper.Map(pessoaDto, pessoa); // Mapeia o DTO para a entidade Pessoa
+        _context.Pessoas.Update(pessoa); // Atualiza a pessoa no contexto
+        await _context.SaveChangesAsync(); // Salva as mudanças no banco de dados
+        return NoContent(); // Retorna o código HTTP 204
     }
 
     /// <summary>

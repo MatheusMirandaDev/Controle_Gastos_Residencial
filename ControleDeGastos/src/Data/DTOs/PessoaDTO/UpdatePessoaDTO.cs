@@ -1,20 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 
 namespace ControleDeGastos.API.src.Data.DTOs.PessoaDTO;
 
 /// <summary>
-/// DTO responsável pela criação de uma pessoa.
-/// Contém as validações e os dados necessários para criar uma nova pessoa no sistema.
+/// DTO responsável pela atualização de uma pessoa.
+/// Contém as validações e os dados necessários para atualizar uma pessoa já existente no sistema.
 /// </summary>
-public class CreatePessoaDTO
+public class UpdatePessoaDTO
 {
-    /// <summary>
-    /// Identificador para pessoa.
-    /// </summary>
-    [Key]
-    public int Id { get; set; }
-
     /// <summary>
     /// Nome da pessoa.
     /// O nome deve ser fornecido e ter no máximo 100 caracteres.

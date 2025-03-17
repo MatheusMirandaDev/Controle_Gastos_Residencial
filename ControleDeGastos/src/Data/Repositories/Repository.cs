@@ -27,6 +27,13 @@ public class Repository<T> where T : class
         await _context.SaveChangesAsync();
     }
 
+    // Método para atualizar um objeto no banco de dados
+    public async Task Atualizar(T objeto)
+    {
+        _context.Set<T>().Update(objeto);
+        await _context.SaveChangesAsync();
+    }
+
     // Método para remover um objeto no banco de dados
     public async Task Remover(T objeto)
     {

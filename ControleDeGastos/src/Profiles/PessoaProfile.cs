@@ -12,6 +12,9 @@ public class PessoaProfile : Profile
         // Mapeia CreatePessoaDTO para Pessoa (usado na criação de uma nova pessoa)
         CreateMap<CreatePessoaDTO, Pessoa>();
 
+        // Mapeia UpdatePessoaDTO para Pessoa (usado na atualização de uma pessoa)
+        CreateMap<UpdatePessoaDTO, Pessoa>();
+
         // Mapeia Pessoa para ReadPessoaDTO (usado na leitura dos dados de uma pessoa)
         CreateMap<Pessoa, ReadPessoaDTO>();
     }

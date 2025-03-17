@@ -16,8 +16,9 @@ Esta é a API do **Sistema de Gestão de Gastos Residenciais**, responsável por
 A API conta com uma documentação interativa via **Swagger**.
 
 **Acesse em:**  
-🔗 https://localhost:7130/swagger
-
+🔗 https://localhost:7130/index.html
+    ou
+    http://localhost:5130/index.html
 ---
 
 ## 🔗 Principais Endpoints
