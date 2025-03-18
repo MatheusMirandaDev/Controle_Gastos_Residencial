@@ -18,5 +18,4 @@ public class PessoaProfile : Profile
         // Mapeia Pessoa para ReadPessoaDTO (usado na leitura dos dados de uma pessoa)
         CreateMap<Pessoa, ReadPessoaDTO>();
     }
-
 }

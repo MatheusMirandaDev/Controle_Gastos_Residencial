@@ -10,7 +10,7 @@ namespace ControleDeGastos.src.Models;
 public enum TipoTransacao
 {
     Receita,
-    Despesa
+    Despesa,
 }
 
 // Classe que representa o modelo de transação
