@@ -2,8 +2,9 @@
 
 namespace ControleDeGastos.src.Data.Repositories;
 
-// Bibliotecas necessárias para o funcionamento do repositório genérico 
-public class Repository<T> where T : class
+// Bibliotecas necessárias para o funcionamento do repositório genérico
+public class Repository<T>
+    where T : class
 {
     // Contexto do banco de dados
     protected readonly ControleDeGastosContext _context;
@@ -40,5 +41,4 @@ public class Repository<T> where T : class
         _context.Set<T>().Remove(objeto);
         await _context.SaveChangesAsync();
     }
-
 }

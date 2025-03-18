@@ -29,7 +29,12 @@ function ConsultaTotais() {
     getTotaisGerais();
   }, []);
 
-  const getColorClass = (value) => (value < 0 ? "negative" : "");
+  const getColorClass = (value) => {
+    if (value === 0) {
+      return "zero";
+    }
+    return value < 0 ? "negativo" : "positivo"; // Saldo negativo ou positivo
+  };
 
   return (
     <div className="container">
@@ -48,10 +53,10 @@ function ConsultaTotais() {
             totaisPorPessoa.map((item) => (
               <tr key={item.nome}>
                 <td>{item.nome}</td>
-                <td className={getColorClass(item.totalReceitas)}>
+                <td className="positivo">
                   R$ {item.totalReceitas?.toFixed(2) || "0.00"}
                 </td>
-                <td className="negative">
+                <td className="negativo">
                   R$ {item.totalDespesas?.toFixed(2) || "0.00"}
                 </td>
                 <td className={getColorClass(item.saldo)}>
@@ -71,11 +76,13 @@ function ConsultaTotais() {
 
       <div className="totais-gerais">
         <h1>Totais Gerais</h1>
-        <p>
-          Total de Receitas: R$ {totaisGerais.totalReceitas?.toFixed(2) || "0.00"}
+        <p className="positivo">
+          Total de Receitas: R${" "}
+          {totaisGerais.totalReceitas?.toFixed(2) || "0.00"}
         </p>
-        <p className="negative">
-          Total de Despesas: R$ {totaisGerais.totalDespesas?.toFixed(2) || "0.00"}
+        <p className="negativo">
+          Total de Despesas: R${" "}
+          {totaisGerais.totalDespesas?.toFixed(2) || "0.00"}
         </p>
         <p className={getColorClass(totaisGerais.saldo)}>
           Saldo Líquido: R$ {totaisGerais.saldo?.toFixed(2) || "0.00"}

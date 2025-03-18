@@ -15,12 +15,13 @@ body {
   display: flex; /* Usa flexbox para layout */
   flex-direction: column; /* Define direção do flexbox como coluna */
   justify-content: flex-start; /* Alinha itens no início do contêiner */
+  overflow-y: scroll; /* Permite overflow vertical */
+
 }
 
 /* Define fundo branco e permite overflow vertical */
 body {
   background: #fff; /* Define a cor de fundo como branco */
-  overflow-y: auto; /* Permite overflow vertical */
 }
 
 /* Estilos específicos para o body */

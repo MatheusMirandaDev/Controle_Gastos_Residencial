@@ -36,7 +36,9 @@ public class TransacaoController : ControllerBase
     public async Task<IActionResult> CreateTransacao([FromBody] CreateTransacaoDTO transacaoDto)
     {
         // Verifica se a pessoa existe
-        var pessoa = await _context.Pessoas.FirstOrDefaultAsync(pessoa => pessoa.Id == transacaoDto.PessoaId);
+        var pessoa = await _context.Pessoas.FirstOrDefaultAsync(pessoa =>
+            pessoa.Id == transacaoDto.PessoaId
+        );
         if (pessoa == null)
         {
             // Retorna um erro caso a pessoa não seja encontrada
@@ -81,10 +83,10 @@ public class TransacaoController : ControllerBase
     public async Task<IEnumerable<ReadTransacaoDTO>> GetTransacao()
     {
         // Obtém todas as transações do banco de dados, incluindo os dados da pessoa
-        var transacoes = await _context.Transacoes
-                                        .Include(t => t.Pessoa) // Inclui os dados da pessoa relacionada à transação
-                                        .AsNoTracking() // Melhora a performance ao não rastrear as entidades
-                                        .ToListAsync();
+        var transacoes = await _context
+            .Transacoes.Include(t => t.Pessoa) // Inclui os dados da pessoa relacionada à transação
+            .AsNoTracking() // Melhora a performance ao não rastrear as entidades
+            .ToListAsync();
 
         // Mapeia as transações para o DTO de leitura
         return _mapper.Map<List<ReadTransacaoDTO>>(transacoes);
@@ -102,7 +104,10 @@ public class TransacaoController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> UpdateTransacao(int id, [FromBody] UpdateTransacaoDTO transacaoDto)
+    public async Task<IActionResult> UpdateTransacao(
+        int id,
+        [FromBody] UpdateTransacaoDTO transacaoDto
+    )
     {
         if (!ModelState.IsValid)
         {
@@ -132,7 +137,7 @@ public class TransacaoController : ControllerBase
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> DeleteTransacao(int id) 
+    public async Task<IActionResult> DeleteTransacao(int id)
     {
         var transacao = await _context.Transacoes.FindAsync(id); // Obtém a transação do banco de dados
         // verifica se a transação existe
@@ -144,7 +149,5 @@ public class TransacaoController : ControllerBase
         _context.Transacoes.Remove(transacao); // Remove a transação do contexto
         await _context.SaveChangesAsync(); // Salva as mudanças no banco de dados
         return NoContent();
-
     }
-
 }

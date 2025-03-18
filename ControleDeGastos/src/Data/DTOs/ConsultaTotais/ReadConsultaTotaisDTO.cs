@@ -24,5 +24,8 @@ public class ReadConsultaTotaisDTO
     /// Calcula o saldo da pessoa, que é a diferença entre receitas e despesas.
     /// </summary>
     /// <returns>O saldo é o resultado entre TotalReceitas - TotalDespesas.</returns>
-    public decimal Saldo { get { return TotalReceitas - TotalDespesas; } }
+    public decimal Saldo
+    {
+        get { return TotalReceitas - TotalDespesas; }
+    }
 }

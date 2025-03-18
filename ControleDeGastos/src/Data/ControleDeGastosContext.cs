@@ -7,7 +7,8 @@ namespace ControleDeGastos.src.Data;
 public class ControleDeGastosContext : DbContext
 {
     // Construtor que recebe as opções de configuração do contexto
-    public ControleDeGastosContext(DbContextOptions<ControleDeGastosContext> options) : base(options) { }
+    public ControleDeGastosContext(DbContextOptions<ControleDeGastosContext> options)
+        : base(options) { }
 
     public DbSet<Pessoa> Pessoas { get; set; } // Define a tabela de Pessoas
     public DbSet<Transacao> Transacoes { get; set; } // Define a tabela de Transações
@@ -18,7 +19,8 @@ public class ControleDeGastosContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         // Define que as transações serão deletadas em cascata
-        modelBuilder.Entity<Pessoa>()
+        modelBuilder
+            .Entity<Pessoa>()
             .HasMany(pessoa => pessoa.Transacoes)
             .WithOne(transacao => transacao.Pessoa)
             .HasForeignKey(transacao => transacao.PessoaId)

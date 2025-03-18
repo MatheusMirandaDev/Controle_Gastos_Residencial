@@ -3,6 +3,7 @@
 Este é o frontend do **Sistema de Gestão de Gastos Residenciais**, desenvolvido em **React** com **Vite**.
 
 ## 📌 Tecnologias Utilizadas
+
 - **React**
 - **JavaScript**
 - **Vite**
@@ -12,16 +13,25 @@ Este é o frontend do **Sistema de Gestão de Gastos Residenciais**, desenvolvid
 
 ---
 
-## 🔗 Funcionalidades Principais
+## 🔗 Funcionalidades
 
 ### 📌 Cadastro de Pessoas
-- Criar, visualizar e excluir usuários.
+
+- Criar, visualizar, editar e excluir usuários.
+- Cada pessoa pode ter múltiplas transações associadas.
+- Ao excluir uma pessoa, todas as suas transações são removidas automaticamente.
 
 ### 📌 Registro de Transações
-- Adicionar receitas e despesas associadas a cada pessoa.
+
+- Registrar **receitas e despesas** associadas a cada pessoa.
+- Atualizar ou excluir transações existentes.
+- Restrições aplicadas:
+  - **Menores de 18 anos** só podem registrar **despesas**.
 
 ### 📌 Consulta de Totais
-- Exibir totais individuais e o saldo geral da residência.
+
+- Exibir totais individuais de receitas, despesas e saldo de cada pessoa.
+- Mostrar o saldo geral da residência.
 
 ---
 
@@ -30,11 +40,11 @@ Este é o frontend do **Sistema de Gestão de Gastos Residenciais**, desenvolvid
 A interface foi projetada para ser intuitiva e responsiva.  
 Aqui estão algumas telas do sistema:
 
-🔹 **Cadastro de Pessoas**  
+🔹 **Cadastro de Pessoas**
 
-🔹 **Registro de Transações**  
+🔹 **Registro de Transações**
 
-🔹 **Consulta de Totais**  
+🔹 **Consulta de Totais**
 
 ---
 

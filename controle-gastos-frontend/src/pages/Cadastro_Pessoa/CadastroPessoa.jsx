@@ -25,7 +25,6 @@ function Cadastro_Pessoa() {
       setPessoas(pessoaFromApi.data); // Atualiza o estado com os dados retornados
     } catch (error) {
       console.error("Erro ao obter pessoas:", error); // Exibe erro no console em caso de falha
-      
     }
   }
 
@@ -117,7 +116,12 @@ function Cadastro_Pessoa() {
           placeholder="Nome*"
           type="text"
           value={nome}
-          onChange={(e) => setNome(e.target.value)}
+          onChange={(e) => {
+            const regex = /^[a-zA-Záàâãéèêíóôõúç\s]*$/;
+            if (regex.test(e.target.value)) {
+              setNome(e.target.value);
+            }
+          }}
           required
         />
         <input

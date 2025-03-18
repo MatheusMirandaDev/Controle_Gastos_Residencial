@@ -1,6 +1,6 @@
-﻿using ControleDeGastos.API.src.Data.Repositories;
+﻿using System.Threading.Tasks;
+using ControleDeGastos.API.src.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace ControleDeGastos.API.src.Controllers;
 

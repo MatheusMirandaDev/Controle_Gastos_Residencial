@@ -84,8 +84,3 @@ h6 {
   font-style: italic; /* Itálico para destacar */
   margin-top: 5px; /* Espaço superior */
 }
-
-/*Remove a barra de rolagem do navegador*/
-::-webkit-scrollbar {
-  display: none; /* Esconde a barra de rolagem */
-}

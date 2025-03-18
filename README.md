@@ -1,6 +1,8 @@
 # 🏠 Sistema de Gestão de Gastos Residenciais 💰
 
-O **Sistema de Gestão de Gastos Residenciais** foi desenvolvido para ajudar no controle das finanças domésticas de maneira simples e eficiente. Ele permite o gerenciamento de despesas e receitas de cada pessoa da casa, auxiliando no controle do saldo geral.
+O **Sistema de Gestão de Gastos Residenciais** ajuda no controle financeiro doméstico de forma simples e eficiente. Ele permite o gerenciamento de receitas e despesas individuais, mantendo o saldo geral da residência sempre atualizado.
+
+---
 
 ## 📌 Tecnologias Utilizadas
 
@@ -22,87 +24,72 @@ O **Sistema de Gestão de Gastos Residenciais** foi desenvolvido para ajudar no 
 
 ## 🔗 Funcionalidades
 
-### 🔹 Cadastro de Pessoas
+### 🔹 Gerenciamento de Pessoas
 
-- Criação, visualização e remoção de pessoas cadastradas no sistema.
-- **Importante**: Ao excluir uma pessoa, todas as suas transações são removidas automaticamente.
-- **Importante**: Pessoas menores de 18 anos só podem registrar **despesas**, não sendo permitido o cadastro de **receitas**.
+- Cadastro, edição e remoção de pessoas no sistema.
+- **Atenção**: A exclusão de uma pessoa **remove todas as suas transações**.
+- **Restrição**: Pessoas menores de **18 anos** podem apenas registrar **despesas**.
 
-### 🔹 Cadastro de Transações
+### 🔹 Controle de Transações
 
-- Registra receitas e despesas, associando cada transação a uma pessoa.
-- **Importante**: Para pessoas menores de 18 anos, apenas transações do tipo **despesa** podem ser registradas.
+- Cadastro de receitas e despesas associadas a uma pessoa.
+- Edição e exclusão de transações já registradas.
 
-### 🔹 Consulta de Totais
+### 🔹 Relatórios e Totais
 
-- Visualiza o total de receitas, despesas e o saldo individual de cada pessoa.
-- Visualiza o saldo geral da residência.
+- Visualização do saldo individual de cada pessoa.
+- Consulta do saldo geral da residência.
 
 ---
 
 ## 🛠️ Como Usar o Sistema
 
-### 1. Cadastro de Pessoas
+### 1️⃣ Cadastro de Pessoas
 
-- Adicione uma pessoa ao sistema.
-- No topo da tela, clique em **Cadastro de Pessoas** para adicionar novas pessoas ao sistema.
-- Além de adicionar, você poderá visualizar ou excluir.
+- Acesse a aba **Cadastro de Pessoas**.
+- Adicione, edite ou exclua usuários.
 
-### 2. Cadastro de Transações
+### 2️⃣ Cadastro de Transações
 
-- Cadastre as transações (despesas ou receitas) para cada pessoa.
-- No topo da tela, clique em **Cadastro de Transações**.
-- Na aba de transações, você poderá visualizar todas as transações registradas e seus respectivos responsáveis.
+- Vá para **Cadastro de Transações**.
+- Registre receitas e despesas.
 
-### 3. Consulta de Totais
+### 3️⃣ Consulta de Totais
 
-- Consulte os totais de receitas, despesas e saldo de cada pessoa, além do total geral da residência.
-- Para acessar, clique em **Consulta de Totais** no topo da tela.
+- Acesse **Consulta de Totais** para visualizar os saldos individuais e o total da residência.
 
 ---
 
-## 📖 Documentação da API (Backend)
+## 📖 Documentação da API (Swagger)
 
-A documentação da API foi gerada utilizando o **Swagger**. Para explorar os endpoints da API, rode o a API e acesse:
+A API possui uma documentação interativa via **Swagger**. Para acessá-la, execute o backend e abra:
 
-```bash
-https://localhost:7130/swagger
-```
+🔗 [Swagger UI](https://localhost:7130/index.html)
 
-### 🔗 Endpoints
+### 🔹 Endpoints
 
-#### 🔹 ConsultaTotais
+#### 📌 Consulta de Totais
 
-- **GET /ConsultaTotais**
-  - Obtém os totais de cada pessoa (Receitas, Despesas e Saldo).
-- **GET /ConsultaTotais/gerais**
-  - Obtém os totais gerais (Receitas, Despesas, Saldo).
+- `GET /ConsultaTotais` → Obtém os totais individuais.
+- `GET /ConsultaTotais/gerais` → Obtém o saldo geral.
 
-#### 🔹 Pessoa
+#### 📌 Pessoa
 
-- **POST /Pessoa**
+- `POST /Pessoa` → Cria uma nova pessoa.
+- `GET /Pessoa` → Lista todas as pessoas.
+- `PUT /Pessoa/{id}` → Edita uma pessoa.
+- `DELETE /Pessoa/{id}` → Remove uma pessoa e suas transações.
 
-  - Cria uma nova pessoa.
+#### 📌 Transação
 
-- **GET /Pessoa**
-
-  - Obtém uma lista de todas as pessoas cadastradas.
-
-- **DELETE /Pessoa/{id}**
-  - Remove uma pessoa do banco de dados com base no ID fornecido.
-
-#### 🔹 Transacao
-
-- **POST /Transacao**
-
-  - Cria uma nova transação.
-
-- **GET /Transacao**
-  - Obtém todas as transações cadastradas.
+- `POST /Transacao` → Registra uma nova transação.
+- `GET /Transacao` → Lista todas as transações.
+- `PUT /Transacao/{id}` → Edita uma transação.
+- `DELETE /Transacao/{id}` → Remove uma transação.
 
 ---
 
-## 🛠  Como Rodar o Projeto
+## 🛠 Como Rodar o Projeto
 
 ### 🖥 Backend (API)
 
@@ -125,6 +112,7 @@ https://localhost:7130/swagger
    ```bash
    dotnet restore
    ```
+
 5. Crie e aplique as migrações do banco de dados:
    ```bash
    dotnet ef migrations add InitialCreate
@@ -132,7 +120,7 @@ https://localhost:7130/swagger
    ```
 6. Inicie o servidor backend:
    ```bash
-   dotnet run 
+   dotnet run
    ```
 
 O backend estará disponível em: https://localhost:7130

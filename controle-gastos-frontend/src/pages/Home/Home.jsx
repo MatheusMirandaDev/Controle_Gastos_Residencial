@@ -22,7 +22,9 @@ const Home = () => {
         {/* Caixa de funcionalidades: Cadastro de Pessoas */}
         <div className="feature-box">
           <h3>Cadastro de Pessoas</h3> {/* Título da funcionalidade */}
-          <p>Crie, visualize e remova registros de pessoas no sistema.</p>{" "}
+          <p>
+            Crie, visualize, atualize e remova registros de pessoas no sistema.
+          </p>{" "}
           {/* Explicação do que a funcionalidade faz */}
           <h6>
             {" "}
@@ -35,8 +37,8 @@ const Home = () => {
         <div className="feature-box">
           <h3>Cadastro de Transações</h3>
           <p>
-            Registre receitas e despesas, associando cada transação a uma pessoa
-            da casa.
+            Crie, visualize, atualize e remova registros de transações no
+            sistema.
           </p>
           <h6>
             {" "}
@@ -92,4 +94,4 @@ const Home = () => {
   );
 };
 
-export default Home; // Exporta o componente Home para ser utilizado em outras partes do projeto
+export default Home;

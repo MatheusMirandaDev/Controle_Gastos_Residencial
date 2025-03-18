@@ -1,7 +1,7 @@
-﻿using ControleDeGastos.src.Models;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
 using ControleDeGastos.API.src.Data.DTOs.PessoaDTO;
+using ControleDeGastos.src.Models;
 
 namespace ControleDeGastos.API.src.Data.DTOs.TransacaoDTO;
 
@@ -40,5 +40,4 @@ public class CreateTransacaoDTO
     /// </summary>
     [Required]
     public int PessoaId { get; set; }
-
 }

@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 259,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,10 +35,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
               "$type": "Document",
@@ -50,8 +46,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAAACYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T22:38:02.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T22:38:02.464Z"
             },
             {
               "$type": "Document",
@@ -61,7 +56,7 @@
               "RelativeDocumentMoniker": "src\\Controllers\\TransacaoController.cs",
               "ToolTip": "C:\\Users\\Matheus\\Desktop\\Controle_Gastos_Residencial\\ControleDeGastos\\src\\Controllers\\TransacaoController.cs",
               "RelativeToolTip": "src\\Controllers\\TransacaoController.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAAAIAAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAcwIUAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T22:34:49.546Z",
               "EditorCaption": ""
@@ -76,8 +71,7 @@
               "RelativeToolTip": "src\\Data\\DTOs\\TransacaoDTO\\ReadTransacaoDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T22:32:12.739Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-17T22:32:12.739Z"
             },
             {
               "$type": "Document",
@@ -90,6 +84,10 @@
               "ViewState": "AgIAAAsAAAAAAAAAAAAYwAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T22:27:01.324Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             }
           ]
         }

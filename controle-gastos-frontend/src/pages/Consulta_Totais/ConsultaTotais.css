@@ -3,6 +3,7 @@
   padding: 20px; /* Espaçamento interno */
   max-width: 1200px; /* Largura máxima */
   margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+  overflow-x: hidden;
 }
 
 /* Estilo para os títulos h1 e h2 */
@@ -50,6 +51,14 @@ table tr:nth-child(even) {
 }
 
 /* Estilo valoes de despesa */
-.negative{
+.negativo {
   color: red; /* Cor vermelha para valores negativos */
+}
+
+.positivo {
+  color: green;
+}
+
+.zero {
+  color: black;
 }
