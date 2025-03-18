@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"; // Importa os hooks necessários
 import "./CadastroTransacao.css"; // Importa os estilos específicos para o cadastro de transações
+import Lixo from "../../assets/lixo.svg"; // Ícone de exclusão
+import Lapis from "../../assets/Lapis.svg"; // Ícone de edição
 import api from "../../services/api"; // Importa o serviço de API para interação com o backend
 
 function CadastroTransacao() {
@@ -17,46 +19,37 @@ function CadastroTransacao() {
   const [erroValor, setErroValor] = useState(false); // Erro no valor
   const [erroPessoaId, setErroPessoaId] = useState(false); // Erro na pessoa selecionada
 
+  // Estados para modo de edição
+  const [modoEdicao, setModoEdicao] = useState(false); // Indica se está no modo de edição
+  const [idEditando, setIdEditando] = useState(null); // Armazena o ID da pessoa que está sendo editada
+
   // Função assíncrona para buscar todas as transações da API
   async function getTransacao() {
-    const transacaoFromApi = await api.get("/Transacao"); // Buscar as transações
-    setTransacao(transacaoFromApi.data); // Atualiza o estado com as transações retornadas
+    try {
+      const transacaoFromApi = await api.get("/Transacao"); // Buscar as transações
+      setTransacao(transacaoFromApi.data); // Atualiza o estado com as transações retornadas
+    } catch (error) {
+      console.error("Erro ao obter transação:", error); // Exibe erro no console em caso de falha
+    }
   }
 
-  // Função assíncrona para buscar todas as pessoas da API
+  // Função para obter a lista de pessoas do backend
   async function getPessoas() {
-    const pessoasFromApi = await api.get("/Pessoa"); // Buscar as pessoas cadastradas
-    setPessoas(pessoasFromApi.data); // Atualiza o estado com as pessoas retornadas
+    try {
+      const pessoaFromApi = await api.get("/Pessoa"); // Requisição GET para buscar as pessoas
+      setPessoas(pessoaFromApi.data); // Atualiza o estado com os dados retornados
+    } catch (error) {
+      console.error("Erro ao obter pessoas:", error); // Exibe erro no console em caso de falha
+    }
   }
 
   // Função para criar uma nova transação
   async function createTransacao() {
-    let erro = false; // Inicializa a variável erro
-
-    // Validação dos campos obrigatórios para ver se todos estão preenchidos
-    if (!descricao) {
-      setErroDescricao(true);
-      erro = true;
-    } else {
-      setErroDescricao(false);
-    }
-
-    if (!valor) {
-      setErroValor(true);
-      erro = true;
-    } else {
-      setErroValor(false);
-    }
-
-    if (!pessoaId) {
-      setErroPessoaId(true);
-      erro = true;
-    } else {
-      setErroPessoaId(false);
-    }
-
-    if (erro) {
-      alert("O(s) campo(s) em vermelho é(sao) obrigatorio(s)!"); // Exibe o alerta de erro
+    // Valida os campos antes de prosseguir
+    if (!validarCampos()) {
+      alert(
+        "O(s) campo(s) em vermelho é(são) obrigatório(s) e devem estar corretos!"
+      );
       return;
     }
 
@@ -90,6 +83,50 @@ function CadastroTransacao() {
     }
   }
 
+  // Função para atualizar uma nova transação
+  async function putTransacao() {
+    //validação dos campos
+    if (!validarCampos()) {
+      alert(
+        "O(s) campo(s) em vermelho é(são) obrigatório(s) e devem estar corretos!"
+      );
+      return;
+    }
+
+    try {
+      // Atualiza os dados na API
+      await api.put(`/Transacao/${idEditando}`, {
+        descricao,
+        valor: parseFloat(valor).toFixed(2),
+        tipo: tipo === "Despesa" ? 1 : 0,
+        pessoaId: parseInt(pessoaId),
+      });
+
+      resetForm(); // reseta o formulario
+      getTransacao(); //atualiza a lista de transações
+    } catch (error) {
+      console.error(
+        "Erro ao atualizar transação:",
+        error.response?.data || error
+      ); // Exibe erro no console
+      alert("Erro ao deletar transação!"); // Exibe um alerta de erro
+    }
+  }
+
+  // Função para deletar transações
+  async function deleteTransacao(id) {
+    try {
+      await api.delete(`/Transacao/${id}`); // deleta a transação na API
+      getTransacao(); //atualiza a lista de transações
+    } catch (error) {
+      console.error(
+        "Erro ao deletar transação:",
+        error.response?.data || error
+      ); // Exibe erro no console
+      alert("Erro ao deletar transação!"); // Exibe um alerta de erro
+    }
+  }
+
   // Função para selecionar a pessoa associada à transação
   function handlePessoaSelect(event) {
     const selectedPessoaId = event.target.value; // Pega o id da pessoa selecionada
@@ -100,9 +137,61 @@ function CadastroTransacao() {
     setPessoaSelecionada(pessoa); // Atualiza a pessoa selecionada
   }
 
+  // Verificação se os inputs foram feitos corretamente
+  const validarCampos = () => {
+    const descricaoValida = descricao.trim() !== ""; // descrição não pode ser nula
+    const valorValido = !isNaN(valor) && parseFloat(valor) > 0; // valor deve ser maior q 1
+    const pessoaValida = pessoaId.trim() !== ""; // a transação deve ser associada a uma pessoa
+
+    // Reseta os erros de validação
+    setErroDescricao(!descricaoValida);
+    setErroValor(!valorValido);
+    setErroPessoaId(!pessoaValida);
+
+    return descricaoValida && valorValido && pessoaValida;
+  };
+
+  // Função para editar uma transação existente
+  function editarTransacao(transacao) {
+    // Define que estamos no modo de edição
+    setModoEdicao(true);
+
+    // Armazena o ID da transação que está sendo editada
+    setIdEditando(transacao.id);
+
+    // Preenche os campos do formulário com os dados da transação
+    setDescricao(transacao.descricao);
+    setValor(transacao.valor);
+
+    // Define o tipo da transação como "Despesa" ou "Receita"
+    // Aqui, assumimos que '1' representa "Despesa" e '0' representa "Receita"
+    setTipo(transacao.tipo === 1 ? "Despesa" : "Receita");
+
+    // Armazena o ID da pessoa relacionada à transação
+    setPessoaId(transacao.pessoaId.toString());
+  }
+
+  // Função para resetar os campos do formulário
+  function resetForm() {
+    // Limpa os campos do formulário
+    setDescricao("");
+    setValor("");
+    setTipo("Despesa"); // Define o tipo como "Despesa" por padrão
+    setPessoaId(""); // Limpa o campo do ID da pessoa
+
+    // Reseta o estado de modo de edição
+    setModoEdicao(false);
+    setIdEditando(null); // Limpa o ID da transação em edição
+
+    // Reseta os erros de validação
+    setErroDescricao(false);
+    setErroValor(false);
+    setErroPessoaId(false);
+  }
+
   // Efeito para buscar as transações e pessoas ao carregar o componente
   useEffect(() => {
-    getTransacao(); //
+    getTransacao();
     getPessoas();
   }, []);
 
@@ -115,8 +204,8 @@ function CadastroTransacao() {
         }}
       >
         <div>
-        <h1>Cadastro de Transação</h1>
-          <label>Pessoa referente à transferência</label>
+          <h1>{modoEdicao ? "Editar Transação" : "Cadastro de Transação"}</h1>
+          <label>Pessoa referente à transação</label>
           <select
             value={pessoaId}
             onChange={handlePessoaSelect} // Atualiza o estado de pessoaId ao selecionar uma pessoa
@@ -161,7 +250,20 @@ function CadastroTransacao() {
             )}
           </select>
         </div>
-        <button type="submit">Cadastrar</button>
+        {modoEdicao ? (
+          <>
+            <button type="button" onClick={putTransacao}>
+              Salvar
+            </button>
+            <button type="button" onClick={resetForm}>
+              Cancelar
+            </button>
+          </>
+        ) : (
+          <button type="button" onClick={createTransacao}>
+            Cadastrar
+          </button>
+        )}
       </form>
 
       <h2>Transações Cadastradas</h2>
@@ -170,31 +272,48 @@ function CadastroTransacao() {
         <table className="tabela-planilha">
           <thead>
             <tr>
-              {/* Exibe os dados (nome, valor, descrição, tipo) da pessoa da transação */}
-              <th>Pessoa</th> 
+              <th>Pessoa</th>
               <th>Valor</th>
               <th>Descrição</th>
               <th>Tipo</th>
+              <th>Ação</th>
             </tr>
           </thead>
           <tbody>
-            {/* Mapeia e renderiza todas as transações cadastradas pelo map*/}
-            {transacoes.map((transacao, index) => (
-              <tr key={transacao.id || `transacao-${index}`}>
-                <td>{transacao.pessoa?.nome}</td>
-                {/* Exibe as informações da transação */}
-                <td>R$ {transacao.valor}</td>
-                <td className="descricao">{transacao.descricao}</td>
-                <td
-                  className={transacao.tipo === 1 ? "despesa" : "receita"} // Define a classe CSS com base no tipo da transação
-                >
-                  <strong>
-                    {transacao.tipo === 1 ? "Despesa" : "Receita"}
-                  </strong>
-                  {/* Exibe o tipo da transação */}
+            {transacoes.length === 0 ? (
+              <tr className="no-transactions">
+                <td colSpan="5" style={{ textAlign: "center" }}>
+                  Nenhuma transação registrada
                 </td>
               </tr>
-            ))}
+            ) : (
+              transacoes.map((transacao) => (
+                <tr key={transacao.id}>
+                  <td>{transacao.pessoa?.nome}</td>
+                  <td>R$ {transacao.valor}</td>
+                  <td className="descricao">{transacao.descricao}</td>
+                  <td className={transacao.tipo === 1 ? "despesa" : "receita"}>
+                    <strong>
+                      {transacao.tipo === 1 ? "Despesa" : "Receita"}
+                    </strong>
+                  </td>
+                  <td>
+                    <button
+                      className="btn-action"
+                      onClick={() => editarTransacao(transacao)}
+                    >
+                      <img src={Lapis} alt="Editar" />
+                    </button>
+                    <button
+                      className="btn-action"
+                      onClick={() => deleteTransacao(transacao.id)}
+                    >
+                      <img src={Lixo} alt="Excluir" />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
