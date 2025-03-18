@@ -71,9 +71,8 @@ const Home = () => {
         <div className="feature-box">
           <h3>2º - Cadastro de Transações</h3>
           <p>
-            - Na página de.
-            <strong>{' "Cadastro de Transações"'}</strong>, registre despesas ou
-            receitas para cada pessoa.
+            - Na página de <strong>{' "Cadastro de Transações"'}</strong>,
+            registre despesas ou receitas para cada pessoa.
           </p>
           <p>
             - No final da tela, você poderá visualizar as transações registradas
