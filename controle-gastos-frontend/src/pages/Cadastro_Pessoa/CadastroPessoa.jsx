@@ -148,24 +148,30 @@ function Cadastro_Pessoa() {
         )}
       </form>
       <h2>Pessoas Cadastradas</h2>
-      {pessoas.map((pessoa) => (
-        <div key={pessoa.id} className="card">
-          <div>
-            <p>
-              Nome: <span>{pessoa.nome}</span>
-            </p>
-            <p>
-              Idade: <span>{pessoa.idade}</span>
-            </p>
+      {pessoas.length === 0 ? (
+        <p className="mensagem-vazia">Nenhuma pessoa cadastrada.</p>
+      ) : (
+        pessoas.map((pessoa) => (
+          <div key={pessoa.id} className="card">
+            <div>
+              <p>
+                Nome: <span>{pessoa.nome}</span>
+              </p>
+              <p>
+                Idade: <span>{pessoa.idade}</span>
+              </p>
+            </div>
+            <div className="img-btn">
+            <button onClick={() => editarPessoa(pessoa)}>
+              <img src={Lapis} alt="Editar" />
+            </button>
+            <button onClick={() => deletePessoa(pessoa.id)}>
+              <img src={Lixo} alt="Excluir" />
+            </button>
+            </div>
           </div>
-          <button onClick={() => editarPessoa(pessoa)}>
-            <img src={Lapis} alt="Editar" />
-          </button>
-          <button onClick={() => deletePessoa(pessoa.id)}>
-            <img src={Lixo} alt="Excluir" />
-          </button>
-        </div>
-      ))}
+        ))
+      )}
     </div>
   );
 }

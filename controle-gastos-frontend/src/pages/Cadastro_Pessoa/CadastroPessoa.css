@@ -113,14 +113,12 @@ form button:hover {
   margin-top: 20px; /* Espaçamento acima das cartas */
 }
 
-/* Remove a barra de rolagem no contêiner */
-.cards-container::-webkit-scrollbar {
-  display: none; /* Esconde a barra de rolagem no Chrome/Safari */
-}
-
-.cards-container {
-  -ms-overflow-style: none; /* Remove a barra de rolagem no Internet Explorer */
-  scrollbar-width: none; /* Remove a barra de rolagem no Firefox */
+/* Estilos para mensagem */
+.mensagem-vazia {
+  text-align: center; /* Texto alinhado no centro */
+  font-size: 1.2rem; /* Tamanho da fonte */
+  color: #888; /* Cor da mensagem */
+  margin-top: 10px; /* espaçamento acima */
 }
 
 /* Estilos para as cartas individuais */
@@ -133,8 +131,9 @@ form button:hover {
   min-width: 400px; /* Largura mínima das cartas */
   margin-top: 10px; /* Espaçamento entre as cartas */
   display: flex; /* Usando flexbox para o layout interno da carta */
-  justify-content: space-between; /* Espaço entre os elementos dentro da carta */
+  justify-content: flex-start; /* Espaço entre os elementos dentro da carta */
   align-items: center; /* Alinha os itens no centro */
+  gap: 10px;
 }
 
 /* Estilos para o texto dentro das cartas */
@@ -159,7 +158,12 @@ form button:hover {
   border: none; /* Remove borda do botão */
   cursor: pointer; /* Alteração do cursor ao passar sobre o botão */
   display: flex;
-  align-items: right;
+}
+
+/* Estilos para os butões de editar e deletar */
+.img-btn {
+  margin-left: auto; /* Move a div de botões para a direita */
+  display: flex;
 }
 
 /* Estilos para as imagens dentro dos botões das cartas */
