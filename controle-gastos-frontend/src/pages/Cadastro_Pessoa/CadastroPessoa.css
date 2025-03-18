@@ -48,6 +48,7 @@ form {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra suave para o formulário */
   width: 100%; /* O formulário ocupa toda a largura disponível */
   max-width: 400px; /* Limita a largura máxima do formulário */
+  min-width: 400px;
   display: flex; /* Usando flexbox para organizar os inputs e botões */
   display: flex; /* Usando flexbox para organizar os elementos do formulário */
   flex-direction: column; /* Organiza os elementos do formulário verticalmente */
